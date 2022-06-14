@@ -1,0 +1,29 @@
+<?php
+$APP=new stdclass();
+$APP->idsistema=10;
+$APP->titulosistema='Sistema Auxiliar para la Generaci&oacute;n de Informes';
+$APP->siglasistema='Ideas';
+$APP->tiempolimite=120;
+$APP->ver_registro=0;
+$APP->entidad_multiple=0;
+$APP->identidad=0;
+$APP->rutacomun='../todas/';
+$APP->ruta_archivos='../archivos/';
+$APP->tipo_doc='CC';
+$APP->pais='057';
+$APP->basedepto='05785';
+$APP->baseciudad='05785001';
+$APP->ver_pais=0;
+$APP->db_servidor='ideasw.powwebmysql.com';
+$APP->db_puerto='';
+$APP->db_nombre='instrac1_sistemas';
+$APP->utf8=0;
+$APP->https=2;
+$APP->geolocaliza=0;
+$APP->piel=2;
+$APP->db_usuario='sistemas';
+$APP->db_clave='Instr4cv1al.';
+$APP->db_usuario2='';
+$APP->db_clave2='';
+$APP->websocio='';
+?>

@@ -1,13 +1,281 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  width: 100%;
+  min-width: 430px;
+  height: 100%;
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: none;
+  background-color: #303646 !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+select {
+  height: 35px;
+  color: #fff;
+  border: 1px solid #393939;
+  text-transform: none;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: left;
+  border-radius: 2px;
+  background-color: #393939;
+}
+
+.container {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 430px;
+  background-color: #303646;
+}
+
+.content {
+  float: right;
+  min-height: 100%;
+  width: 100%;
+  max-width: 430px;
+  background-color: #E3E9EE;
+  display: block;
+  padding: 30px;
+  clear: none;
+  position: absolute;
+  left: calc(100% - 430px);
+}
+
+.login-title {
+  height: 175px;
+}
+
+.content h2 {
+  position: relative;
+  float: left;
+  width: 156px;
+  color: #0097EA;
+  font: 100% Montserrat, Arial, Helvetica, sans-serifM;
+  font-size: 22px;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-top: 20px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.login-logo {
+  float: left;
+  margin: 10px;
+  border: 0;
+  box-sizing: border-box;
+  text-align: left;
+  color: #000;
+  font-weight: 400;
+}
+
+.login-box {
+  width: 350px;
+  color: #000;
+  padding: 15px;
+  background-color: rgba(186, 200, 212, 0.5);
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 50px;
+  margin: 10px;
+}
+
+.login-box-body {
+  width: 320px;
+  padding: 20px;
+  border-top: 0;
+  color: #666;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+
+.login {
+  position: relative;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  color: #666;
+  text-align: left;
+}
+
+.login-input {
+  padding-right: 42.5px;
+  -moz-appearance: none;
+  border-radius: 4px;
+  box-shadow: none;
+  border-color: #d2d6de;
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  margin-bottom: 4px;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: left;
+  border-radius: 10px;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #999;
+  opacity: 1;
+  /* Firefox */
+}
+
+
+/* Pre loader */
+
+.loader-container {
+  z-index: 5000;
+  width: 100%;
+  height: 100vh;
+  background-color: #111;
+  color: transparent;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  z-index: 5001;
+  width: 100px;
+  height: 100px;
+  border: 5px solid;
+  color: #3498db;
+  background-color: transparent;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: loader 1.2s linear infinite;
+}
+
+#img-loader {
+  z-index: 5001;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: -75px;
+  color: transparent;
+  background-color: transparent;
+}
+
+@keyframes loader {
+  25% {
+    color: #2ecc71;
+  }
+
+  50% {
+    color: #f1c40f;
+  }
+
+  75% {
+    color: #e74c3c;
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.salto1px {
+  height: 1px;
+  clear: both;
+}
+
+.salto5px {
+  height: 5px;
+  clear: both;
+}
+
+.btn {
+  float: right;
+  width: 150px;
+}
+
+.mensaje {
+  float: left;
+  padding: 5px 0;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  color: #A70707 !important;
+  border: 1px solid #A70707;
+  border-radius: 5px;
+}
+
+i {
+  color: #000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.ideas-logo {
+  width: 107px;
+  position: absolute;
+  max-width: 50%;
+}
+
+
+/* Aca va lo dark */
+
+.dark {
+  background-color: #121212;
+}
+
+.dark .content {
+  color: #fff;
+  background-color: #1c1c1c;
+}
+
+.dark .login-box {
+  background-color: #262626;
+}
+
+.dark .login-input {
+  color: #fff;
+  background-color: #393939;
+}
+
+.dark select {
+  height: 25px;
+  color: #fff;
+  border: 1px solid #393939;
+  text-transform: none;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: left;
+  border-radius: 2px;
+  background-color: #393939;
+}
+
+.dark label {
+  color: #fff;
 }
