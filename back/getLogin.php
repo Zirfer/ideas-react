@@ -12,12 +12,13 @@ if ($method == "OPTIONS") {
 $res = array(
     "status" => 500,
     "message" => "",
-    "data" => "",
+    "data" => false,
     "debug" => ""
 );
-if ((int)$_SESSION['u_idtercero'] != 0) {
+if (isset($_SESSION['u_idtercero']) != 0) {
     $res['status'] = 200;
     $res['message'] = 'Ya existe una sesión';
+    $res['data'] = true;
     $res['debug'] = $_SESSION['u_idtercero'];
 } else {
     $res['message'] = 'No hay sesión';

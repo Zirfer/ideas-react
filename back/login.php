@@ -1,13 +1,17 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-header("Allow: POST, OPTIONS, PUT, DELETE");
-header('content-type: application/json; charset=utf-8');
-$method = $_SERVER['REQUEST_METHOD'];
-if ($method == "OPTIONS") {
+header("Access-Control-Allow-Origin: *");
+/* Si es una prueba prevuelo no debemos ejecutar el script */
+if ($_SERVER['REQUEST_METHOD'] === "OPTIONS") {
     die();
 }
+/* Si no nos han enviado el formulario */
+if ($_SERVER['REQUEST_METHOD'] !== "POST") {
+    header("HTTP/1.1 400 Bad Request");
+    exit(1);
+}
+$DATA = json_decode(file_get_contents("php://input"));
+print_r(json_encode($DATA));
+die();
 // Generar respuesta default
 $res = array(
     "status" => 500,
@@ -22,17 +26,6 @@ if (!file_exists('./app.php')) {
     die();
 }
 require './app.php';
-if (isset($APP->https) == 0) {
-    $APP->https = 0;
-}
-if ($APP->https > 0) {
-    //Hay que obligar al https.
-    if ($_SERVER['HTTPS'] != 'on') {
-        $pageURL = 'https://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-        header('Location:' . $pageURL);
-        die();
-    }
-}
 require $APP->rutacomun . 'todas.php';
 require $APP->rutacomun . 'libs/clsdbad.php';
 require $APP->rutacomun . 'librerias_v2.php';
@@ -48,13 +41,13 @@ if ((int)$_SESSION['u_idtercero'] != 0) {
     die();
 }
 // Verificar variables antes de hacer algo
-if (isset($_SESSION['u_identidad']) == 0 || isset($_SESSION['u_idtercero']) == 0) {
-    $res['message'] = 'No hay una sesion activa.';
-    print_r(json_encode($res));
-    die();
-}
+// if (isset($_SESSION['u_identidad']) == 0 || isset($_SESSION['u_idtercero']) == 0) {
+//     $res['message'] = 'No hay una sesion activa.';
+//     print_r(json_encode($res));
+//     die();
+// }
 // Recibir los datos
-$DATA = json_decode(file_get_contents("php://input"), true);
+$DATA = json_decode(file_get_contents('php://input'), true);
 // Verificar la data
 if (isset($DATA) && !empty($DATA)) {
     $std = htmlspecialchars($DATA['cbotipoid']);

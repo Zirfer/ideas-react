@@ -7,6 +7,7 @@ const Loader = lazy(() => import('../sharedComponents/Loader'));
 
 function Login() {
     const tipoDoc = ['CC', 'TI', 'NIT']
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [data, setData] = useState({
         txtid: '',
         txtclave: '',
@@ -21,20 +22,15 @@ function Login() {
     }
 
     const handleLogin = async () => {
-        const config = {
-            url: 'http://ideasw.co//back/login.php',
-            method: 'POST',
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'origin': 'x-requested-with',
-                'Access-Control-Allow-Headers': 'POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin',
-                'Content-Type': 'application/json',
-            },
-            data: JSON.stringify(data),
-        };
-        axios(config)
+        // const config = {
+        //     url: 'https://david.avellaneda.co/back/login.php',
+        //     method: 'POST',
+        //     body: JSON.stringify(data)
+        // };
+        axios.post('http://david.avellaneda.co/back/login.php', data)
             .then(function (res) {
-                console.log(res)
+                console.log(res.data)
+                //setData(...data, )
             })
     }
 
